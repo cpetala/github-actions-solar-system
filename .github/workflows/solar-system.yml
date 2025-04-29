@@ -95,6 +95,7 @@ jobs:
 
     dev-deploy:
           needs: docker
+          continue-on-error: true
           environment:
             name: development
           runs-on: ubuntu-latest
@@ -133,4 +134,3 @@ jobs:
                   }}
                 INGRESS_IP: '${{ env.INGRESS_IP }}'
             - run: cat kubernetes/development/*.yaml
-            
